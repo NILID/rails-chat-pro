@@ -1,0 +1,13 @@
+%h3.text-muted.mb-0
+  Rooms
+%hr.mt-1/
+- if @rooms.present?
+  %nav.nav.flex-column
+    - @rooms.each do |room|
+      = link_to room.name, room_path(room), class: 'nav-link room-nav-link'
+- else
+  .text-muted
+    The are no rooms
+.mt-3
+  = link_to new_room_path, class: 'btn btn-primary' do
+    Create a room
