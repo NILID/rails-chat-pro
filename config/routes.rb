@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  root controller: :rooms, action: :index
+  root 'rooms#index'
 
-  resources :room_messages
-  resources :rooms
+  resources :room_messages, only: %i[create]
+  resources :rooms, except: %i[destroy]
 end
