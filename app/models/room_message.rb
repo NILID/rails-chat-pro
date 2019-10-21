@@ -4,6 +4,6 @@ class RoomMessage < ApplicationRecord
   belongs_to :user
 
   def as_json(options)
-    super(options).merge(user_avatar_url: user.gravatar_url)
+    super(options).merge(user_avatar_url: user.gravatar_url, user_name: user.username)
   end
 end
