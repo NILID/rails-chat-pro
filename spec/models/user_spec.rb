@@ -4,6 +4,15 @@ RSpec.describe Room, type: :model do
   let(:user) { build(:user) }
 
   context 'should have' do
+    it 'guest role by default' do
+      expect(user.role).to eq('guest')
+    end
+
+    it 'user role after create' do
+      user.save!
+      expect(user.role).to eq('user')
+    end
+
     it 'username' do
       user.username = nil
       expect(user.valid?).to be false
